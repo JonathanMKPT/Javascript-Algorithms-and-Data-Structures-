@@ -9,7 +9,3 @@ consoloe.log(`Time elapsed:"  ${(t2 - t1)) / 1000 } seconds.`);
 
 
 
-/*
-Exception: SyntaxError: missing } in template string
-@Scratchpad/5:8
-*/
