@@ -1,7 +1,7 @@
 function collectOdds(num){
 	let results = [];
 	
-	function helpr(helperInput){
+	function helper(helperInput){
 		if(helperInput.length === 0){
 			return;
 		}
