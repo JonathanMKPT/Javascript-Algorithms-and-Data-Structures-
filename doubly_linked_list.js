@@ -26,6 +26,36 @@ class DoublyLinkedList {
 			return this;
 				
 		}
+		pop(){
+				if(!this.head) return undefined
+				var popped = this.tail
+				if(this.length === 1){
+						this.head = null
+						this.tail = null
+						
+				} else {
+					this.tail = popped.prev
+					this.tail.next = null
+					popped.prev = null
+				}
+				this.length--
+				return popped
+		}
+		shift(){
+				if(this.length === 0) return undefined
+				var oldHead = this.head
+				if(this.length === 1){
+						this.head = null
+						this.tail = null
+				}
+				this.head = oldHead.next
+				this.head.prev = null
+				oldHead.next = null
+				this.length--
+				return oldHead
+				
+				
+		}
 		
 	
 }
