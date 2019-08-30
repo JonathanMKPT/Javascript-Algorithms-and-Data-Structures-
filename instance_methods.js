@@ -25,5 +25,8 @@ class Student {
 		let sum =this.scores.reduce(function(a,b){return a+b;})
 		return sum/this.scores.length;
 	}
+	static enrollStudents(){
+		return "Enrolling students"
+	}
 	
 }
