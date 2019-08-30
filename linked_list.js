@@ -108,7 +108,27 @@ class SinglyLinkedList {
 		
 			
 	}
-
+	reverse(){
+		var node = this.head
+		this.head = this.tail
+		this.tail = node
+		var previous = null
+		for(var i = 0; i < this.length; i++){
+			next = node.next
+			node.next = previous
+			previous = node
+			node = next
+		}
+	}
 	
+	print(){
+			var arr = []
+			var current = this.head
+			while(current){
+				arr.push(current.val)
+				current = current.next
+			}
+			console.log(arr)
+	}
 	
 }
