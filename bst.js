@@ -10,7 +10,7 @@ class BinarySearchTree{
 	constructor(){
 		this.root = null
 	}
-	insert(val){
+	/* insert(val){
 		var newNode = new Node(val)
 		if(this.root === null){
 			this.root = newNode
@@ -25,36 +25,75 @@ class BinarySearchTree{
 						return this
 					} else {
 						current = current.left
-					} else if(val > current.val){
-						if(current.right === null){
-							current.right = newNode
-							return this
-						} else {
-							current = current.right
-						}
+					}
+				} else if(val > current.val){
+					if(current.right === null){
+						current.right = newNode
+						return this
+					} else {
+						current = current.right
 					}
 				}
 			}
 		}
-	}
-	find(val){
-		if(this.root === null) return false
-		var start = this.right
-		var found = false
-		while(current && !found){
+	} */
+	insert(val){
+		var newNode = new Node(val)
+		if(this.root === null){
+			this.root = newNode
+			return this
+		}
+		var current = this.root
+		while(true){
+			if(val === current.val) return undefined
 			if(val < current.val){
+				if(current.left === null){
+					current.left = newNode
+					return this
+				} 
 				current = current.left
-			} else if(val > current.val){
-				current = current.right
 			} else {
-				found = true
+				if(current.right === null){
+					current.right = newNode
+					return this
+				}
+				current = current.right
+				}
 			}
 		}
-		if(!found) return undefined
-		return current
-	}
-	
+		find(val){
+			if(this.root === null) return false
+			var current = this.root,
+				found = false
+			while(current && !found){
+				if(val < current.val){
+					current = current.left
+				} else if(val > current.val){
+					current = current.right
+				} else {
+					found = true
+				}
+			}
+			if(!found) return undefined
+			return current
+		}
+		contains(val){
+			if(this.root === null) return false
+			var current = this.root,
+				found = false
+			while(current && !found){
+				if(val < current.val){
+					current = current.left
+				} else if(val > current.val){
+					current = current.right
+				} else {
+					return true
+				}
+			}
+			return false
+		}
 }
+	
 var tree = new BinarySearchTree()
 tree.insert(10)
 tree.insert(5)
