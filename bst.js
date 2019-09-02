@@ -117,6 +117,16 @@ class BinarySearchTree{
 			traverse(this.root)
 			return data
 		}
+		DFSPostOrder(){
+			var data = []
+			function traverse(node){
+				if(node.left) traverse(node.left)
+				if(node.right) travers(node.right)
+				data.push(node.val)
+			}
+			traverse(this.root)
+			return data
+		}
 }
 	
 var tree = new BinarySearchTree()
