@@ -1,9 +1,11 @@
-function hast(key, arrLen){
+function hash(key, arrLen){
 	let total = 0
-	for(let char of key){
+	let WEIRD_PRIME  - 31
+	for(let i = 0; i < Math.min(key.length, 100); i++){
 	//map "a" to "1" "b to 2, "c" to 3 etc.
-		let value  = char.charCodeAt(0) - 96
-		total = (total + value) % arrLen
+		let char - key[i]
+		let value = charCodeAt(0) - 96
+		total = (total * WEIRD_PRIME + value) % arrLen
 	}
 	return total
 		
