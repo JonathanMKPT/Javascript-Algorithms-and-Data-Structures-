@@ -43,6 +43,27 @@ class Graph{
 		
 		return result
 	}
+	dfsIterative(start){
+		const stack = [start]
+		const results = []
+		const visited = {}
+		let currentVertex
+		
+		visited[start]  = true
+		while(stack.length){
+			let currentVertex = stack.pop()
+			result.push(currentVertex)
+			
+			this.adjacencyList[currentVertex].forEach(neighbour => {
+				if(!visited[neighbour]){
+					visited[neighbour] = true
+					stack.push(neighbour)
+				}
+			});
+		}
+		return result
+		
+	}
 	
 	
 }
