@@ -5,7 +5,7 @@ class Graph{
 	addVertex(vertex){
 		if(!this.adjacencyList[vertex]) this.adjacencyList[vertex] = []
 	}
-	addEdge(vertex1, vertex2){
+	addEdge(vertex1,vertex2){
 		this.adjacencyList[vertex1].push(vertex2)
 		this.adjacencyList[vertex2].push(vertex1)
 	}
@@ -32,16 +32,16 @@ class Graph{
 		(function dfs(vertex){
 			if(!vertex) return null
 			visited[vertex] = true
-			result.push(vertex)
+			results.push(vertex)
 			adjacencyList[vertex].forEach(neighbour => {
-				if(!visisted[neighbour]){
+				if(!visited[neighbour]){
 					return dfs(neighbour)
 				}
 			})
 			
 		})(start)
 		
-		return result
+		return results
 	}
 	dfsIterative(start){
 		const stack = [start]
@@ -51,8 +51,8 @@ class Graph{
 		
 		visited[start]  = true
 		while(stack.length){
-			let currentVertex = stack.pop()
-			result.push(currentVertex)
+			currentVertex = stack.pop()
+			results.push(currentVertex)
 			
 			this.adjacencyList[currentVertex].forEach(neighbour => {
 				if(!visited[neighbour]){
@@ -61,7 +61,7 @@ class Graph{
 				}
 			});
 		}
-		return result
+		return results
 		
 	}
 	
@@ -77,9 +77,9 @@ g.addVertex("D")
 g.addVertex("E")
 g.addVertex("F")
 
-g.addEdge("A")
-g.addEdge("B")
-g.addEdge("C")
-g.addEdge("D")
-g.addEdge("E")
-g.addEdge("F")
+g.addEdge("A","B")
+g.addEdge("A","C")
+g.addEdge("B","D")
+g.addEdge("C","E")
+g.addEdge("D", "E")
+g.addEdge("E","F")
