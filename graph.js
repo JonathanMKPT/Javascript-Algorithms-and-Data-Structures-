@@ -64,6 +64,25 @@ class Graph{
 		return results
 		
 	}
+	bfs(start) {
+		const queue = [start]
+		const results = []
+		const visited = {}
+		let currentVertex
+		
+		while(queue.length){
+			currentVertex = queue.shift()
+			results.push(currentVertex)
+			
+			this.adjacencyList[currentVertex].forEach(neighbout => {
+				if(!visited[neighbour]){
+					visited[neighbour] = true
+					queue.push(neighbour)
+				}
+			})
+		}
+		return results
+	}
 	
 	
 }
